@@ -17,31 +17,36 @@ public class Number4 {
 		int num2 = sc.nextInt();
 		sc.nextLine();
 		
-		int max=0;
+		int big=0;
+		int small=0;
+		
 		if(num1 > num2) {
-			for(int i=1 ; i<=num1 ; i++) {
-				if(num1%i == 0 && num2%i == 0) {
-					max = i;
-				}
+			big = num1;
+			small = num2;
+		} else if(num1 < num2) {
+			big = num2;
+			small = num1;
+		} else {
+			System.out.println("같은 수는 입력할 수 없습니다.");
+			return;
+		}
+
+		for(int i=small ; i>0 ; i--) {
+			if(num1%i == 0 && num2%i == 0) {
+				System.out.print(num1 + ", " + num2 + "의 최대공약수는 " + i + "입니다.");
+				break;
 			}
-			System.out.println(num1 + "과 " + num2 + "의 최대공약수는 " + max + "입니다.");
-		} else if (num1 < num2) {
-			for(int i=1 ; i<=num2 ; i++) {
-				if(num1%i == 0 && num2%i == 0) {
-					max = i;
-				}
+		}
+		System.out.println();
+		
+		for(int i=big ; i<=(big*small) ; i++) {
+			if(i%num1 == 0 && i%num2 == 0) {
+				System.out.print(num1 + ", " + num2 + "의 최소공배수는 " + i + "입니다.");
+				break;
 			}
-			System.out.println(num1 + "과 " + num2 + "의 최대공약수는 " + max + "입니다.");
-			
-		} else if(num1 == num2) {
-			System.out.println("같은 수는 입력할 수 없습니다. 다시 시도하세요.");
 		}
 		
-		
-		//최소공배수 모르겠어..
-		
-		
-		
+	
 		
 	} //main end
 

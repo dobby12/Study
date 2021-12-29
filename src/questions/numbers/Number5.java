@@ -29,6 +29,48 @@ public class Number5 {
 		}
 		
 		System.out.println(sosu);
-	}
+		
+		
+		
+		//---------------------------------------------------------------------------------------
+		//플래그 이용 방법
+		
+		System.out.print("Input >> ");
+        int number = sc.nextInt();
+        System.out.println();
+
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        boolean isNotPrime = false; //소수판별 플래그        
+        
+        for(int i=1; i<=number; i++) {
+            
+            //예외상황 : 1은 소수가 아님
+            if( i==1 ) {
+                System.out.println(i + " 소수가 아님");
+                continue;
+            }
+
+            //i값에 대한 소수판별 플래그 초기화
+            isNotPrime = false;
+            
+            //i값에 대한 소수 판별
+            for(int j=2; j<=i-1; j++) {
+                if( i%j == 0 ) { //약수가 존재함
+                    isNotPrime = true; //소수가 아님!
+                }
+            }
+            
+            if(!isNotPrime) {
+//                System.out.println(i + " 소수");
+                list.add(i);
+            }
+            
+        }
+        
+        System.out.println(list);
+
+		
+	}//main end
 
 }
